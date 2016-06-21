@@ -1,0 +1,44 @@
+{% extends "layout.html.twig" %}
+
+{% block body %}
+    <h1><span class="glyphicon glyphicon-file"></span> {{- file -}}</h1>
+
+    <div>
+        <ol class="breadcrumb">
+            <li><a href="/">Home</a></li>
+            <li><a href="/xml/{{ directory }}">{{ directory }}</a></li>
+            <li class="active">{{ file }}</li>
+        </ol>
+    </div>
+
+    <p>
+        Size: {{ size }} -
+        <a href="/xml/{{ directory }}">Back</a>
+        <a href="/xml/{{ directory }}/{{ file }}/download">Download</a>
+    </p>
+
+    <div id="xmlContent"></div>
+
+{% endblock %}
+
+{% block javascripts %}
+    <script src="/js/xml.js"></script>
+    <script language="javascript">
+        $(function () {
+            $xml.url = "/xml/{{ directory }}/{{ file }}/node";
+            $.ajax({
+                url: $xml.url,
+                dataType: "text",
+                error: function () {
+                    $xml.log('Error during call');
+                    $xml.log(data);
+                },
+                success: function (data) {
+                    $xml.log(data);
+                    $xml.insertXml('xmlContent', JSON.parse(data));
+                }
+            });
+        });
+    </script>
+
+{% endblock %}

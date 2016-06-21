@@ -1,0 +1,26 @@
+{% extends "layout.html.twig" %}
+
+{% block body %}
+
+<h1>XML Explorer</h1>
+
+    <div>
+        <ol class="breadcrumb">
+            <li class="active"><a href="/">Home</a></li>
+        </ol>
+    </div>
+
+    <h3>Configured XML directories</h3>
+
+<ul class="xml_directories">
+    {% for directory in directories %}
+        <li class="directory">
+            <a href="/xml/{{ directory['name'] }}">
+                {{- directory['path'] -}}
+            </a>
+            <span class="label label-default">{{ directory['count'] }}</span>
+        </li>
+    {% endfor %}
+</ul>
+
+{% endblock %}

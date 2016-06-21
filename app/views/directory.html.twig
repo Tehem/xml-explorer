@@ -1,0 +1,25 @@
+{% extends "layout.html.twig" %}
+
+{% block body %}
+<h1>Directory - {{ directory }}</h1>
+
+<div>
+    <ol class="breadcrumb">
+        <li><a href="/">Home</a></li>
+        <li class="active">{{ directory }}</li>
+    </ol>
+</div>
+
+<ul class="xml_files">
+    {% for name,file in files %}
+        <li class="file">
+            <a href="/xml/{{ directory }}/{{ name }}">
+                {{- file -}}
+            </a>
+        </li>
+    {% endfor %}
+</ul>
+
+<a href="/">Back</a>
+
+{% endblock %}

@@ -1,0 +1,38 @@
+.Utility {
+    color: black;
+}
+.node {
+    font-weight:bold;
+    color: #800080;
+}
+.attribute
+{
+    font-weight:bold;
+    color: black;
+}
+.attributeValue
+{
+    color:blue;
+}
+.nodeValue
+{
+    color: black;
+}
+.element {
+    border-left: thin solid #00FF66;
+    padding-top:0px;
+    margin-top:10px;
+}
+.clickable {
+    font-weight:900;
+    cursor:pointer;
+    vertical-align:middle;
+}
+
+.nodeChild {
+    margin-left: 10px;
+}
+
+.loginrow {
+    margin-top: 120px;
+}
